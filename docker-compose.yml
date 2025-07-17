@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  sliced-bread:
+    build: .
+    container_name: sliced-bread
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///data/sliced-bread.db
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    ports:
+      - "8000:8000"
+    command: python main.py --help
+
+  redis:
+    image: redis:7-alpine
+    container_name: sliced-bread-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: sliced-bread-postgres
+    environment:
+      POSTGRES_DB: slicedbread
+      POSTGRES_USER: slicedbread
+      POSTGRES_PASSWORD: slicedbread123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  redis_data:
+  postgres_data:

@@ -1,0 +1,46 @@
+# Core dependencies
+pandas>=2.0.0
+numpy>=1.24.0
+yfinance>=0.2.18
+backtrader>=1.9.78.123
+
+# Web framework and API
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# Database
+sqlalchemy>=2.0.0
+alembic>=1.13.0
+
+# Caching
+redis>=5.0.0
+
+# Machine Learning (Basic - compatible with Python 3.13)
+scikit-learn>=1.4.0
+# xgboost>=2.0.0  # Temporarily disabled for Python 3.13 compatibility
+# shap>=0.44.0    # Temporarily disabled for Python 3.13 compatibility
+
+# Technical Analysis
+# ta-lib>=0.4.28  # Commented out - can be problematic to install
+# pandas-ta>=0.3.14b  # Temporarily disabled
+
+# Sentiment Analysis
+vaderSentiment>=3.3.2
+newsapi-python>=0.2.7
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic-settings>=2.1.0
+httpx>=0.25.0
+# celery>=5.3.0  # Temporarily disabled
+
+# Development
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.7.0
+
+# Deployment
+gunicorn>=21.2.0
